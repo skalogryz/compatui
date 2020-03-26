@@ -38,10 +38,7 @@ var
   idecmd : TIDECommand;
 begin
   idecmd := IDECommandList.FindIDECommand(ecCloseAll);
-  if not Assigned(idecmd) then begin
-    writeln('no command close all :(');
-    exit;
-  end;
+  if not Assigned(idecmd) then Exit;
 
   IDECloseAll.OnMethod := idecmd.OnExecute;;
   IDECloseAll.OnProc := idecmd.OnExecuteProc;
